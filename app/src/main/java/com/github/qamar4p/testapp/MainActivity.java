@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imageView;
     private ImageView imageView2;
     private Picasso picasso;
+
+    String interestingImageUrl = "https://d19dnii6y7cwuc.cloudfront.net/uploads/media/3342/original/5b1a2bc8c3863.png";
+    String sampleImageUrl = "http://i.imgur.com/DvpvklR.png";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +32,12 @@ public class MainActivity extends AppCompatActivity {
                 }).indicatorsEnabled(true)
                 .build();
 
-        picasso.load("http://i.imgur.com/DvpvklR.png")
+        picasso.load(sampleImageUrl)
                 .into(imageView);
 
-        picasso.load("https://d19dnii6y7cwuc.cloudfront.net/uploads/media/3342/original/5b1a2bc8c3863.png")
-                .into(imageView);
+        picasso.load(interestingImageUrl)
+                .into(imageView2);
+
+//        Glide.with(getApplicationContext()).load(interestingImageUrl).into(imageView2);
     }
 }
